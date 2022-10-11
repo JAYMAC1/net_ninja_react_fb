@@ -17,9 +17,12 @@ function App() {
       })
     })
   }
+
+  const title = 'Mario Kingdom Events'
+
   return (
     <div className='App'>
-      <Title />
+      <Title title={title} />
       <div>
         {showEvents && (
           <button onClick={() => setShowEvents(false)}>hide events</button>
