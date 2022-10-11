@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import Modal from './components/Modal'
 import Title from './components/Title'
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
             <button onClick={() => handleClick(event.id)}>delete event</button>
           </React.Fragment>
         ))}
+
+      <Modal></Modal>
     </div>
   )
 }
