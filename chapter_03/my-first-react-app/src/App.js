@@ -28,6 +28,7 @@ function App() {
 
   const newEvent = (event) => {
     setEvents((preEvents) => [...preEvents, event])
+    console.log(event)
     setShowModal(false)
   }
   const title = 'Events in Your Area'
@@ -37,7 +38,6 @@ function App() {
     <div className='App'>
       <Title title={title} subtitle={subtitle} />
       <br />
-      <button onClick={() => setShowModal(true)}>Add New Event</button>
       <div>
         {showEvents && (
           <button onClick={() => setShowEvents(false)}>hide events</button>
@@ -60,13 +60,14 @@ function App() {
           <NewEventForm newEvent={newEvent} />
           {/* <h2>Terms and Conditions</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis maxime doloribus quae sunt corporis, debitis
-            laudantium. Consectetur repellat et ipsa cum totam consequuntur eum
-            iste similique voluptatum sit? Nam, distinctio.
-          </p> */}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis maxime doloribus quae sunt corporis, debitis
+          laudantium. Consectetur repellat et ipsa cum totam consequuntur eum
+          iste similique voluptatum sit? Nam, distinctio.
+        </p> */}
         </Modal>
       )}
+      <button onClick={() => setShowModal(true)}>Add New Event</button>
     </div>
   )
 }

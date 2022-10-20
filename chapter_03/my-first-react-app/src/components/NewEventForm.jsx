@@ -5,18 +5,21 @@ import './NewEventForm.css'
 const NewEventForm = ({ newEvent }) => {
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
+  const [location, setLocation] = useState('glasgow')
 
   const resetForm = () => {
     setTitle('')
     setDate('')
+    setLocation('glasgow')
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const event = {
-      id: Math.floor(Math.random() * 10000),
       title,
       date,
+      location,
+      id: Math.floor(Math.random() * 10000),
     }
     newEvent(event)
     resetForm()
@@ -39,6 +42,14 @@ const NewEventForm = ({ newEvent }) => {
           onChange={(e) => setDate(e.target.value)}
           value={date}
         />
+      </label>
+      <label>
+        <span>Event Location:</span>
+        <select onChange={(e) => setLocation(e.target.value)}>
+          <option value='manchester'>Manchester</option>
+          <option value='glasgow'>Glasgow</option>
+          <option value='edinburgh'>Edinburgh</option>
+        </select>
       </label>
       <button type='submit'>Submit</button>
     </form>
