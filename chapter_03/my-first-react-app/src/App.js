@@ -26,6 +26,10 @@ function App() {
     setShowModal(false)
   }
 
+  const newEvent = (event) => {
+    setEvents((preEvents) => [...preEvents, event])
+    console.log(event)
+  }
   const title = 'Events in Your Area'
   const subtitle = 'All the latest events in Marioland'
 
@@ -52,8 +56,8 @@ function App() {
         //   <h2>10% Off Coupon Code!!</h2>
         //   <p>Use the code NINJA10 at the checkout....</p>
         // </Modal>
-        <Modal handleClose={handleClose} isSalesModal={false}>
-          <NewEventForm />
+        <Modal handleClose={handleClose} isSalesModal={true}>
+          <NewEventForm newEvent={newEvent} />
           {/* <h2>Terms and Conditions</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
