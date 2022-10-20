@@ -8,11 +8,11 @@ import NewEventForm from './components/NewEventForm'
 function App() {
   const [showModal, setShowModal] = useState(false)
   const [showEvents, setShowEvents] = useState(true)
-  const [events, setEvents] = useState([
-    { title: "mario's birthday bash", id: 1 },
-    { title: "bowser's live stream", id: 2 },
-    { title: 'race on moo moo farm', id: 3 },
-  ])
+  const [events, setEvents] = useState([])
+  //   { title: "mario's birthday bash", id: 1 },
+  //   { title: "bowser's live stream", id: 2 },
+  //   { title: 'race on moo moo farm', id: 3 },
+  // ])
 
   const handleClick = (id) => {
     setEvents((prevState) => {
@@ -28,7 +28,7 @@ function App() {
 
   const newEvent = (event) => {
     setEvents((preEvents) => [...preEvents, event])
-    console.log(event)
+    setShowModal(false)
   }
   const title = 'Events in Your Area'
   const subtitle = 'All the latest events in Marioland'
