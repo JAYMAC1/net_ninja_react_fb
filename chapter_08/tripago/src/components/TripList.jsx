@@ -14,6 +14,15 @@ const TripList = () => {
   return (
     <div className='trip-list'>
       <h2>Trip List</h2>
+      <div className='filters'>
+        <button
+          onClick={() => setUrl('http://localhost:3000/trips?loc=europe')}>
+          European Trips
+        </button>
+        <button onClick={() => setUrl('http://localhost:3000/trips')}>
+          All Trips
+        </button>
+      </div>
       <ul>
         {trips &&
           trips.map((trip) => {
