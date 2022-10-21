@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react'
+import './TripList.css'
 
 const TripList = () => {
   const [trips, setTrips] = useState([])
+  const [url, setUrl] = useState('http://localhost:3000/trips')
 
   useEffect(() => {
-    fetch('http://localhost:3000/trips')
+    fetch(url)
       .then((response) => response.json())
       .then((json) => setTrips(json))
-  }, [])
+  }, [url])
 
   return (
-    <div>
+    <div className='trip-list'>
       <h2>Trip List</h2>
       <ul>
         {trips &&
           trips.map((trip) => {
-            return <li key={trip.id}> {trip.title}</li>
+            return (
+              <li key={trip.id}>
+                <h3> {trip.title}</h3>
+                <p>{trip.price}</p>
+              </li>
+            )
           })}
       </ul>
     </div>
