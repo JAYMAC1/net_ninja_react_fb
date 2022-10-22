@@ -5,11 +5,12 @@ import './TripList.css'
 const TripList = () => {
   const [url, setUrl] = useState('http://localhost:3000/trips')
 
-  const { data } = useFetch(url)
+  const { data, isPending } = useFetch(url)
 
   return (
     <div className='trip-list'>
       <h2>Trip List</h2>
+      {isPending && <h1>Loading...</h1>}
       <div className='filters'>
         <button
           onClick={() => setUrl('http://localhost:3000/trips?loc=europe')}>
