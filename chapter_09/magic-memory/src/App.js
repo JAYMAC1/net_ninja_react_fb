@@ -26,20 +26,33 @@ function App() {
     setTurns(0)
   }
 
-  useEffect(() => {
-    shuffleCards()
-  }, [])
-
   // handle a choice
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
 
+  const restChoices = () => {
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns((prevTurns) => prevTurns + 1)
+  }
+
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        console.log('Match')
+      } else {
+        console.log('No Match')
+      }
+      restChoices()
+    }
+  }, [choiceOne, choiceTwo])
+
   return (
     <div className='App'>
       <h1>Magic Match</h1>
       <button onClick={() => shuffleCards()}>New Game</button>
-
+      <p>Turns: {turns}</p>
       <div className='card-grid'>
         {cards &&
           cards.map((card) => (
