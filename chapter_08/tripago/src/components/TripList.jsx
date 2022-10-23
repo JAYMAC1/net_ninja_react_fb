@@ -10,8 +10,8 @@ const TripList = () => {
   return (
     <div className='trip-list'>
       <h2>Trip List</h2>
-      {error && <h3>{error}</h3>}
-      {isPending && <h3>Loading...</h3>}
+      {error && <div>{error}</div>}
+      {isPending && <div>Loading...</div>}
       <div className='filters'>
         <button
           onClick={() => setUrl('http://localhost:3000/trips?loc=europe')}>
