@@ -3,14 +3,15 @@ import { useFetch } from '../hooks/useFetch'
 import './TripList.css'
 
 const TripList = () => {
-  const [url, setUrl] = useState('http://localhost:3000/trips')
+  const [url, setUrl] = useState('http://localhost:3000/trip')
 
-  const { data, isPending } = useFetch(url)
+  const { data, isPending, error } = useFetch(url)
 
   return (
     <div className='trip-list'>
       <h2>Trip List</h2>
-      {isPending && <h1>Loading...</h1>}
+      {error && <h3>{error}</h3>}
+      {isPending && <h3>Loading...</h3>}
       <div className='filters'>
         <button
           onClick={() => setUrl('http://localhost:3000/trips?loc=europe')}>
