@@ -22,7 +22,8 @@ function App() {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }))
-
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setCards(shuffledCards)
     setTurns(0)
   }
@@ -38,6 +39,10 @@ function App() {
     setTurns((prevTurns) => prevTurns + 1)
     setDisabled(false)
   }
+
+  useEffect(() => {
+    shuffleCards()
+  }, [])
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
@@ -61,7 +66,6 @@ function App() {
     }
   }, [choiceOne, choiceTwo])
 
-  console.log(cards)
   return (
     <div className='App'>
       <h1>Magic Match</h1>
