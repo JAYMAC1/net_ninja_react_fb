@@ -1,6 +1,9 @@
 import React from 'react'
 import { useFetch } from '../hooks/useFetch'
 
+// styles
+import './Home.css'
+
 const Home = () => {
   const {
     data: articles,
@@ -14,8 +17,9 @@ const Home = () => {
       {error && <div> {error} </div>}
       {articles &&
         articles.map((article) => (
-          <div key={article.id}>
-            <p>{article.title}</p>
+          <div key={article.id} className='card'>
+            <h3>{article.title}</h3>
+            <p>{article.author}</p>
           </div>
         ))}
     </div>
