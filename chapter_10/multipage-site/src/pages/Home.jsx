@@ -11,6 +11,7 @@ const Home = () => {
     isPending,
     error,
   } = useFetch('http://localhost:3000/articles')
+
   return (
     <div className='home'>
       <h2>Articles</h2>
