@@ -8,11 +8,13 @@ import Recipe from './pages/recipe/Recipe'
 
 // Styles
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <div className='App'>
       <BrowserRouter>
+        <Navbar />
         <Switch>
           <Route path='/' exact>
             <Home />
@@ -23,7 +25,7 @@ function App() {
           <Route path='/search'>
             <Search />
           </Route>
-          <Route path='/recipe'>
+          <Route path='/recipe/:id'>
             <Recipe />
           </Route>
         </Switch>
