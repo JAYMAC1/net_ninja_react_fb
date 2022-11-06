@@ -1,6 +1,11 @@
 import React from 'react'
 
+// custom hooks
 import { useFetch } from '../../hooks/useFetch'
+
+// components
+import RecipeList from '../../components/RecipeList'
+
 // styles
 import './Home.css'
 const Home = () => {
@@ -13,8 +18,7 @@ const Home = () => {
     <div className='home'>
       {error && <p className='error'>{error}</p>}
       {isPending && <p className='loading'>Loading....</p>}
-      {recipes &&
-        recipes.map((recipe) => <h2 key={recipe.id}>{recipe.title}</h2>)}
+      {recipes && <RecipeList recipes={recipes} />}
     </div>
   )
 }
