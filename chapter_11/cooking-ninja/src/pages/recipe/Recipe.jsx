@@ -17,7 +17,18 @@ const Recipe = () => {
     <div className='recipe'>
       {error && <p className='error'>{error}</p>}
       {isPending && <p className='loading'>Loading...</p>}
-      {recipe && <h2>{recipe.title}</h2>}
+      {recipe && (
+        <>
+          <h2 className='page-title'>{recipe.title}</h2>
+          <p>Take {recipe.cookingTime} to cook.</p>
+          <ul>
+            {recipe.ingredients.map((ing) => (
+              <li key={ing}>{ing}</li>
+            ))}
+          </ul>
+          <p className='method'>{recipe.method}</p>
+        </>
+      )}
     </div>
   )
 }
