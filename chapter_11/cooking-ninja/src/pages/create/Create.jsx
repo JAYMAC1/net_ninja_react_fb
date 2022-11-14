@@ -1,5 +1,6 @@
 // imported dependences
 import React, { useRef, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useFetch } from '../../hooks/useFetch'
 
 // styles
@@ -12,6 +13,8 @@ const Create = () => {
   const [newIngredient, setNewIngredient] = useState('')
   const [ingredients, setIngredients] = useState([])
 
+  const history = useHistory()
+
   const ingredientInput = useRef(null)
   const { postData } = useFetch('http://localhost:3000/recipes', 'POST')
 
@@ -23,6 +26,8 @@ const Create = () => {
       method,
       cookingTime: cookingTime + ' minutes',
     })
+
+    history.push('/')
   }
 
   const handleAdd = (e) => {
