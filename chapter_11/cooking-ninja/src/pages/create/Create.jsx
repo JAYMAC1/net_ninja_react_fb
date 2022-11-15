@@ -1,5 +1,5 @@
 // imported dependences
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useFetch } from '../../hooks/useFetch'
 
@@ -12,11 +12,21 @@ const Create = () => {
   const [cookingTime, setCookingTime] = useState('')
   const [newIngredient, setNewIngredient] = useState('')
   const [ingredients, setIngredients] = useState([])
-
+  const ingredientInput = useRef(null)
   const history = useHistory()
 
-  const ingredientInput = useRef(null)
-  const { postData } = useFetch('http://localhost:3000/recipes', 'POST')
+  const { postData, data, error } = useFetch(
+    'http://localhost:3000/recipes',
+    'POST'
+  )
+
+  useEffect(() => {
+    if (data) {
+      setTimeout(() => {
+        history.push('/')
+      }, 500)
+    }
+  }, [data])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,8 +36,6 @@ const Create = () => {
       method,
       cookingTime: cookingTime + ' minutes',
     })
-
-    history.push('/')
   }
 
   const handleAdd = (e) => {

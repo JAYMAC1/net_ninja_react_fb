@@ -48,6 +48,28 @@
       "method": "Blah",
       "cookingTime": "20minutes",
       "id": "gGLMjkl"
+    },
+    {
+      "title": "Milkshake",
+      "ingredients": [
+        "milk",
+        "chocolate powder"
+      ],
+      "method": "blend",
+      "cookingTime": "5 minutes",
+      "id": "TovxUOH"
+    },
+    {
+      "title": "fghfgh",
+      "ingredients": [
+        "gfhfgh",
+        "hjh",
+        "hjf",
+        "sfgsf"
+      ],
+      "method": "dgjdghjgfhj",
+      "cookingTime": "56 minutes",
+      "id": "6_obwOJ"
     }
   ]
 }
