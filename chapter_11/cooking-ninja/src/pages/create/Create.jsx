@@ -15,10 +15,7 @@ const Create = () => {
   const ingredientInput = useRef(null)
   const history = useHistory()
 
-  const { postData, data, error } = useFetch(
-    'http://localhost:3000/recipes',
-    'POST'
-  )
+  const { postData, data } = useFetch('http://localhost:3000/recipes', 'POST')
 
   useEffect(() => {
     if (data) {
@@ -26,7 +23,7 @@ const Create = () => {
         history.push('/')
       }, 500)
     }
-  }, [data])
+  }, [data, history])
 
   const handleSubmit = (e) => {
     e.preventDefault()
