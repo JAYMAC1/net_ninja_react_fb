@@ -11,9 +11,13 @@ import ThemeSelector from './components/ThemeSelector'
 // Styles
 import './App.css'
 
+// hooks
+import { useTheme } from './hooks/useTheme'
+
 function App() {
+  const { mode } = useTheme()
   return (
-    <div className='App'>
+    <div className={`App ${mode}`}>
       <BrowserRouter>
         <Navbar />
         <ThemeSelector />
