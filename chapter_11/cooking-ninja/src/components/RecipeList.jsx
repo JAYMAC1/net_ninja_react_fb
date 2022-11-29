@@ -9,7 +9,7 @@ import { useTheme } from '../hooks/useTheme'
 
 const RecipeList = ({ recipes }) => {
   const { mode } = useTheme()
-
+  console.log(recipes.length)
   if (recipes.length === 0) {
     return <div className='error'>No recipes to load....</div>
   }

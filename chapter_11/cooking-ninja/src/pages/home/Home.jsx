@@ -24,13 +24,11 @@ const Home = () => {
         } else {
           let results = []
           snapshot.docs.forEach((doc) => {
-            results.push({
-              id: doc.id,
-              ...doc.data(),
-            })
-            setData(results)
-            setIsPending(false)
+            console.log(doc)
+            results.push({ id: doc.id, ...doc.data() })
           })
+          setData(results)
+          setIsPending(false)
         }
       })
       .catch((error) => {
